@@ -1,7 +1,7 @@
 <?php
 /**
- * Author: Adam Hineiti
- * Date: 2/24/2023
+ * Author: Mychal Wood, Adam Hineiti, Aidan Tison
+ * Date: 3/2/2023
  * File: hourly_employee.class.php
  * Description:
  */

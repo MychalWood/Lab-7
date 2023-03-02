@@ -12,14 +12,12 @@ class Person {
     // the persons first name, last name, and their birthdate
     private $firstName;
     private $lastName;
-    private $birthDate;
 
     // here is the constructer and it is being defined with the three properties above
-    // (firstname, lastname, birthdate)
-    public function __construct($firstName, $lastName, $birthDate) {
+    // (firstname, lastname)
+    public function __construct($firstName, $lastName) {
         $this->firstName = $firstName;
         $this->lastName = $lastName;
-        $this->birthDate = $birthDate;
     }
 
     // public getter method for the first name
@@ -32,13 +30,8 @@ class Person {
         return $this->lastName;
     }
 
-    // public getter for the birthdate
-    public function getBirthDate() {
-        return $this->birthDate;
-    }
-
     // returns a formatted string which represents the objects of person
     public function __toString() {
-        return $this->getFirstName() . ' ' . $this->getLastName() . ', born on ' . $this->getBirthDate();
+        return $this->getFirstName() . ' ' . $this->getLastName();
     }
 }

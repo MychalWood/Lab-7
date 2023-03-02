@@ -17,35 +17,19 @@ abstract class Employee implements Payable {
 
     // declaring 5 private properties
     // (first name, last name, social security number, birth date, person)
-    private $firstName;
-    private $lastName;
     private $socialSecurityNumber;
-    private $birthDate;
     private $person;
 
     // this line keeps track of all the empolyee objects created
-    public static $employeeCount = 0;
+    private static $employeeCount;
 
     // defining the constructer which holds the properties we created above
-    public function __construct($firstName, $lastName, $socialSecurityNumber, $birthDate) {
-        $this->firstName = $firstName;
-        $this->lastName = $lastName;
+    public function __construct($person, $socialSecurityNumber) {
         $this->socialSecurityNumber = $socialSecurityNumber;
-        $this->birthDate = $birthDate;
-        $this->person = new Person($firstName, $lastName, $birthDate);
+        $this->person = $person;
 
         // increment the employee count each time a new one is created
         self::$employeeCount++;
-    }
-
-    // public getter method for first name
-    public function getFirstName() {
-        return $this->firstName;
-    }
-
-    // public getter method for last name
-    public function getLastName() {
-        return $this->lastName;
     }
 
     // public getter method for social security number
@@ -53,14 +37,18 @@ abstract class Employee implements Payable {
         return $this->socialSecurityNumber;
     }
 
-    // public getter method for birth date
-    public function getBirthDate() {
-        return $this->birthDate;
-    }
-
     // public getter method for person
     public function getPerson() {
         return $this->person;
+    }
+
+    // public getter for employee count
+    public function getEmployeeCount() {
+        return self::getEmployeeCount();
+    }
+
+    public function toString() {
+        return "Name: " . $this->getName() ."SSN " . $this->getSocialSecurityNumber() . "Employee Count: " . $this->getEmployeeCount();
     }
 
     // abstract method for calculating the payment amount

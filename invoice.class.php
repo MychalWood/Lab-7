@@ -1,6 +1,6 @@
 <?php
 /**
- * Author: Adam Hineiti
+ * Author: Mychal Wood, Adam Hineiti, Aidan Tison
  * Date: 2/24/2023
  * File: invoice.class.php
  * Description:
@@ -22,7 +22,7 @@ class Invoice implements Payable {
     // defining our static property which keeps count on the number of invoice objects
     public static $invoiceCount = 0;
 
-    // here we have the contructer which is being defined with the four properties above
+    // here we have the constructor which is being defined with the four properties above
     // (part number, part description, quantity, price per item)
     public function __construct($partNumber, $partDescription, $quantity, $pricePerItem) {
         $this->partNumber = $partNumber;
@@ -58,4 +58,15 @@ class Invoice implements Payable {
     public function getPaymentAmount() {
         return $this->getQuantity() * $this->getPricePerItem();
     }
+
+    // returns a formatted string which represents the objects of the invoice
+    public function __toString() {
+        return 'Part number: ' . $this->getPartNumber() . ' Quantity: ' . $this->getQuantity() . ' Price per item: ' . $this->getPricePerItem() . ' Payment: ' . $this->getPaymentAmount();
+    }
+
+    // public getter for invoice count
+    public function getInvoiceCount() {
+        return $this->invoiceCount;
+    }
+
 }

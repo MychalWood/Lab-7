@@ -6,6 +6,7 @@
  * Description:
  */
 
+// requiring the employee.class.php page
 require_once 'employee.class.php';
 
 class SalariedEmployee extends Employee {
@@ -18,6 +19,9 @@ class SalariedEmployee extends Employee {
         return $this->weekly_salary;
     }
     public function getPaymentAmount() {
-
+        return self::getPaymentAmount();
+    }
+    public function __toString() {
+        return $this->getWeeklySalary() . ' ' . $this->getPaymentAmount();
     }
 }
